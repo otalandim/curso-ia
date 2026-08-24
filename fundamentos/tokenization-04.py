@@ -2,7 +2,6 @@ import nltk
 import numpy as np
 from rank_bm25 import BM25Okapi
 
-
 documents = [
     "Machine learning é um campo da inteligência artificial que permite que computadores aprendam padrões a partir de dados.",
     "O aprendizado de máquina dá aos sistemas a capacidade de melhorar seu desempenho sem serem explicitamente programados.",

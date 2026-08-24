@@ -1,11 +1,11 @@
 import os
-import nltk
 import shutil
-from whoosh.index import create_in
-from whoosh.fields import *
-from whoosh.qparser import QueryParser
-
 import warnings
+
+import nltk
+from whoosh.fields import *
+from whoosh.index import create_in
+from whoosh.qparser import QueryParser
 
 warnings.filterwarnings("ignore", category=SyntaxWarning)
 
