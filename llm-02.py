@@ -5,7 +5,7 @@ client = openai.OpenAI(
 )
 
 response = client.responses.create(
-    model="llama-3.1-8b-instant",
+    model="qwen/qwen3.6-27b",
     instructions="Responda de forma simples em apenas 1 parágrafo curto.",
     input="O que é machine learning?",
     temperature=0,
