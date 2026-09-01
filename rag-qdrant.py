@@ -22,8 +22,8 @@ documents = [
 
 model = SentenceTransformer("all-MiniLM-L6-v2")
 client = Groq()
-qdrant = QdrantClient(":memory:")
-# qdrant = QdrantClient(path="db/data")
+# qdrant = QdrantClient(":memory:")
+qdrant = QdrantClient(path="db/data")
 
 vector_size = model.get_embedding_dimension()
 
