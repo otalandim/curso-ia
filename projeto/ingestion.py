@@ -6,13 +6,13 @@ from fastembed import LateInteractionTextEmbedding, SparseTextEmbedding, TextEmb
 from qdrant_client import QdrantClient, models
 from utils.semantic_chunker import SemanticChunker
 
-load_dotenv(override=True)
+load_dotenv()
 
 DENSE_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 SPARSE_MODEL = "Qdrant/bm25"
 COLBERT_MODEL = "colbert-ir/colbertv2.0"
 COLLECTION_NAME = "financial"
-FILE_PATH = "./AAPL_10-K_1A_temp.md"
+FILE_PATH = "./projeto/AAPL_10-K_1A_temp.md"
 MAX_TOKENS = 300
 
 qdrant = QdrantClient(
@@ -41,10 +41,6 @@ with open(FILE_PATH, "r", encoding="utf-8") as f:
 
 chunker = SemanticChunker(max_tokens=MAX_TOKENS)
 chunks = chunker.create_chunks(content)
-# paragraphs = content.split("\n\n")
-# chunks = [p.strip() for p in paragraphs if len(p.strip()) > 50]
-
-# chunks[0]
 
 dense_model = TextEmbedding(DENSE_MODEL)
 sparse_model = SparseTextEmbedding(SPARSE_MODEL)
