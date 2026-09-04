@@ -21,21 +21,7 @@ qdrant = QdrantClient(
     api_key=os.getenv("QDRANT_API_KEY"),
 )
 
-qdrant.delete_collection(COLLECTION_NAME)
-qdrant.create_collection(
-    collection_name=COLLECTION_NAME,
-    vectors_config={
-        "dense": models.VectorParams(size=384, distance=models.Distance.COSINE),
-        "colbert": models.VectorParams(
-            size=128,  # padrao desse modelo
-            distance=models.Distance.COSINE,
-            multivector_config=models.MultiVectorConfig(
-                comparator=models.MultiVectorComparator.MAX_SIM,
-            ),
-        ),
-    },
-    sparse_vectors_config={"sparse": models.SparseVectorParams()},
-)
+# qdrant.delete_collection(COLLECTION_NAME)
 
 edgar = EdgarClient(email=EMAIL)
 data_10k = edgar.fetch_filing_data("AAPL", "10-K")
