@@ -26,6 +26,7 @@ dependencies = [
     "sentence-transformers>=6.0.0",
     "uvicorn>=0.52.4",
     "whoosh>=2.7.4",
+    "yfinance>=1.7.0",
 ]
 
 [dependency-groups]
